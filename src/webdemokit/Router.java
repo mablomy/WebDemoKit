@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ConnectException;
+import java.net.NoRouteToHostException;
 import java.net.URL;
 import java.util.Base64;
 import java.util.ArrayList;
@@ -118,6 +119,11 @@ public class Router extends Element {
             state = NOT_CONNECTED;
             // If Router is unavailable, wait a bit longer before retry
             try {Thread.sleep(1000);} catch(Exception ex) {System.out.println("Sleep in RouterCheck interrupted");}
+        } catch (NoRouteToHostException e) {
+            state = NOT_CONNECTED;
+            // If Router is unavailable, wait a bit longer before retry
+            try {Thread.sleep(1000);} catch(Exception ex) {System.out.println("Sleep in RouterCheck interrupted");}
+            
         }catch (Exception e) {
             System.out.println("Exception in RouterChecker.checkRouter():");
             System.out.println(e.getMessage());
@@ -133,7 +139,7 @@ public class Router extends Element {
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Accept", "application/json");
         if (conn.getResponseCode() != 200) {
-            throw new RuntimeException("CheckRouter.getRouterConnections failed : HTTP error code : " + conn.getResponseCode());
+            throw new RuntimeException("CheckRouter.getRouterConnections failed for URL "+path+" : " + conn.getResponseCode());
         }
         state = CONNECTED;
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
