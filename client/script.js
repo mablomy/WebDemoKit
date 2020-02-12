@@ -367,5 +367,5 @@ function updateRouter(div, el) {
     else
         document.getElementById(el["id"]+"_down").hidden=true;
     document.getElementById(el["id"]+"_router").title = el["routerstatus"];
-    document.getElementById(el["id"]+"_label").innerHTML = "host: "+el["host"] + "<br>version: "+el["version"] + "<br>" + el["cxnstatus"];
+    document.getElementById(el["id"]+"_label").innerHTML = "host: "+el["hostname"] + "<br>version: "+el["version"] + "<br>" + el["cxnstatus"];
 }
