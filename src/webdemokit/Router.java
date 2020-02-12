@@ -104,10 +104,10 @@ public class Router extends Element {
                 // Retrieve current connection statistics
                 getRouterStatus();
                 getMetadataName();              
-                port_rw = getInPort(connString+"/routes/"+metadata+"_default_rw/config");
-                port_ro = getInPort(connString+"/routes/"+metadata+"_default_ro/config");
-                port_x_rw = getInPort(connString+"/routes/"+metadata+"_default_x_rw/config");
-                port_x_ro = getInPort(connString+"/routes/"+metadata+"_default_x_ro/config");
+                port_rw = getInPort(connString+"/routes/"+metadata+"_rw/config");
+                port_ro = getInPort(connString+"/routes/"+metadata+"_ro/config");
+                port_x_rw = getInPort(connString+"/routes/"+metadata+"_x_rw/config");
+                port_x_ro = getInPort(connString+"/routes/"+metadata+"_x_ro/config");
                 
                 cxn_rw = getConnections(connString+"/routes/"+metadata+"_default_rw/connections");
                 cxn_ro = getConnections(connString+"/routes/"+metadata+"_default_ro/connections");
