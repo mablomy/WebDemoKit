@@ -80,8 +80,8 @@ public class SQLNode extends Element {
                  "\"connected\":" + getConnected() + "," +
                  "\"cloning\":" + cloning  + "," +
                  "\"clonestate\":\"" + clonestate + "\"," +
-                 "\"clonesource\":\"" + clonesource + "," +
-                 "\"superReadOnly\":" + superReadOnly + "\"}");                
+                 "\"clonesource\":\"" + clonesource + "\"," +
+                 "\"superReadOnly\":" + superReadOnly + "}");                
     }
     
     
