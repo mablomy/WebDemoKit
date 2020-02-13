@@ -100,6 +100,9 @@ function displayElement(el) {
     case "LoadGenerator":
         updateLoadGenerator(domItem, el);
         break;
+    case "TPSMeter":
+        updateTpsMeter(domItem, el);
+        break;
     default:
         console.log("Unknown element type: '"+el["ObjType"]+"'");
     }
