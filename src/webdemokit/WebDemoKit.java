@@ -95,7 +95,7 @@ public class WebDemoKit implements HttpHandler {
         String result;
         
         if (elementlist != null) {
-            System.out.println("Removing existing elements...");
+//            System.out.println("Removing existing elements...");
             for (int i=0; i<elementlist.size(); ++i) 
                 elementlist.get(i).terminate();
         }

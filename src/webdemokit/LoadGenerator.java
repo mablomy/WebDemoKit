@@ -205,6 +205,15 @@ public class LoadGenerator extends Element implements HttpHandler {
                 }
             }
         }
+        // Thread is being stopped (isRunning==false)
+        try {
+            if (conn!=null && !conn.isClosed())
+                conn.close();
+        } catch (Exception e) {
+            System.out.println("Exception when closing connection in LoadGenerator.run()");
+            System.out.println(e);
+        }
+//        System.out.println("LoadGenerator "+hostname+" is shut down.");
 
     }
 

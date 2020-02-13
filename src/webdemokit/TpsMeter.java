@@ -97,7 +97,7 @@ public class TpsMeter extends Element {
 
     public void run() {
         int t;
-        for (;;) {
+        while (isRunning) {
             try {
                 if (!connected) {
                     try{Thread.sleep(1000);}  // Wait 1s before reconnecting
@@ -167,6 +167,14 @@ public class TpsMeter extends Element {
                 }
             }
         }
-
+        // Thread is being stopped (isRunning==false)
+        try {
+            if (conn!=null && !conn.isClosed())
+                conn.close();
+        } catch (Exception e) {
+            System.out.println("Exception when closing connection in TPSMeter.run()");
+            System.out.println(e);
+        }
+//        System.out.println("TPSMeter "+hostname+" is shut down.");
     }
 }

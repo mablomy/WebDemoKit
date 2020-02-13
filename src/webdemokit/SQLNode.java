@@ -91,6 +91,13 @@ public class SQLNode extends Element {
             checkServer();
             try {Thread.sleep(1000);} catch(Exception e) {System.out.println("Sleep interrupted");}
         }
+        try {
+            if (conn!=null && !conn.isClosed())
+                conn.close();
+        } catch (Exception e) {
+            System.out.println("Exception when closing connection in SQLNode.run()");
+            System.out.println(e);
+        }
 //        System.out.println("ServerChecker "+hostname+" is shut down.");
     }
 
