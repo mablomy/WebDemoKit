@@ -112,6 +112,7 @@ public class SQLNode extends Element {
     
     
     protected void checkServer() {
+       
         try {
             if (conn==null || conn.isClosed()) {
                 try{Thread.sleep(1000);}  // Wait 1s before reconnecting
@@ -166,10 +167,12 @@ public class SQLNode extends Element {
                 for (int i=0; i<replicationList.size(); ++i) {
                     int t =0;
                     Element source=null;
+                    Element target;
                     while ((source==null) && (t<siblings.size())) {
 //System.out.println("comparing "+siblings.get(t).getIdString()+" and "+replicationList.get(i));
-                        if (siblings.get(t).whoIs(replicationList.get(i))!= null) {
-                            source = siblings.get(t);
+                        target = siblings.get(t).whoIs(replicationList.get(i));
+                        if (target != null) {
+                            source = target;
 //System.out.println(hostname+":"+port+" found its replication source: " +source.getIdString());
                         }
                         ++t;
