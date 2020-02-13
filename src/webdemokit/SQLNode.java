@@ -34,6 +34,7 @@ public class SQLNode extends Element {
     protected String hostname="unknown host", version="unknown version", clonestate="", clonesource="";
     protected int port=-1;
     private boolean cloning = false;
+    private boolean superReadOnly;
     protected ConnectionList connPanel;
     protected String clonestatlabel;
     protected ArrayList<String> replicationList;
@@ -47,6 +48,7 @@ public class SQLNode extends Element {
         super(sibs,x,y,60,80);
         // setup sql connection
         connString = conn_str;
+        superReadOnly = false;
         setName("ServerChecker:'"+connString+"'");
         connPanel = panel;
         replicationList = new ArrayList<String>();
@@ -78,7 +80,8 @@ public class SQLNode extends Element {
                  "\"connected\":" + getConnected() + "," +
                  "\"cloning\":" + cloning  + "," +
                  "\"clonestate\":\"" + clonestate + "\"," +
-                 "\"clonesource\":\"" + clonesource + "\"}");                
+                 "\"clonesource\":\"" + clonesource + "," +
+                 "\"superReadOnly\":" + superReadOnly + "\"}");                
     }
     
     
@@ -130,7 +133,12 @@ public class SQLNode extends Element {
             else
                 version = temp;
             data.close(); 
-            
+
+            data = select.executeQuery("SELECT @@super_read_only AS Value");
+            data.next();
+            superReadOnly = (data.getInt("Value")==1);
+            data.close();
+
             // Replication sources
             data = select.executeQuery("SELECT channel_name, CONCAT(host,\":\",port) AS 'id' FROM performance_schema.replication_connection_configuration ;");
             ArrayList<String> temp2 = new ArrayList<String>();
@@ -139,11 +147,11 @@ public class SQLNode extends Element {
                 temp2.add(temp);
             }
             if (!replicationList.equals(temp2)) {
-                for (int i=0; i<replicationList.size(); ++i)
-                    System.out.println ("ReplicationList("+i+")="+replicationList.get(i));
-for (int i=0; i<temp2.size(); ++i)
-                    System.out.println ("temp2("+i+")="+temp2.get(i));
-                System.out.println("Building new replication list for "+hostname+":"+port);
+//                for (int i=0; i<replicationList.size(); ++i)
+//                    System.out.println ("ReplicationList("+i+")="+replicationList.get(i));
+//for (int i=0; i<temp2.size(); ++i)
+//                    System.out.println ("temp2("+i+")="+temp2.get(i));
+//                System.out.println("Building new replication list for "+hostname+":"+port);
                 
                 // remove all connection items and build from scratch
                 connPanel.removeInboundReplChannels(this);

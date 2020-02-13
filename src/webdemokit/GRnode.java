@@ -28,7 +28,6 @@ public class GRnode extends SQLNode {
     
     private int grState;
     private int trx_to_recover;
-    private boolean superReadOnly;
     private String groupName;
 
   
@@ -36,9 +35,7 @@ public class GRnode extends SQLNode {
         super(sibs, panel, x, y, conn_str);
         
         grState = UNKNOWN;
-        trx_to_recover = 0;
-        superReadOnly = false;
-    
+        trx_to_recover = 0;    
     }
             
             
@@ -64,8 +61,7 @@ public class GRnode extends SQLNode {
         baseNode = super.toJson();
         return (baseNode.substring(0, baseNode.length()-1) +
                 ",\"nodeState\":\"" + getNodeState() + "\"," +
-                "\"trxToRecover\":" + trx_to_recover  +"," +
-                "\"superReadOnly\":" + superReadOnly + "}");
+                "\"trxToRecover\":" + trx_to_recover  +"}");
     }
     
     @Override protected void checkServer() {
@@ -93,11 +89,6 @@ public class GRnode extends SQLNode {
                     default: grState=UNKNOWN;
                 }
             }
-            
-            data = select.executeQuery("SELECT @@super_read_only AS Value");
-            data.next();
-            superReadOnly = (data.getInt("Value")==1);
-            data.close();
             
             if (grState != OFFLINE) {
 //System.out.println("GRnode.check: state="+grState);

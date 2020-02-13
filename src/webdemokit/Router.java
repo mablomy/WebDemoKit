@@ -109,10 +109,10 @@ public class Router extends Element {
                 port_x_rw = getInPort(connString+"/routes/"+metadata+"_x_rw/config");
                 port_x_ro = getInPort(connString+"/routes/"+metadata+"_x_ro/config");
                 
-                cxn_rw = getConnections(connString+"/routes/"+metadata+"_default_rw/connections");
-                cxn_ro = getConnections(connString+"/routes/"+metadata+"_default_ro/connections");
-                cxn_x_rw = getConnections(connString+"/routes/"+metadata+"_default_x_rw/connections");
-                cxn_x_ro = getConnections(connString+"/routes/"+metadata+"_default_x_ro/connections");
+                cxn_rw = getConnections(connString+"/routes/"+metadata+"_rw/connections");
+                cxn_ro = getConnections(connString+"/routes/"+metadata+"_ro/connections");
+                cxn_x_rw = getConnections(connString+"/routes/"+metadata+"_x_rw/connections");
+                cxn_x_ro = getConnections(connString+"/routes/"+metadata+"_x_ro/connections");
   //          }
             
         } catch (ConnectException e) {
