@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author mario
  */
 public class TpsMeter extends Element {
-    public static final int BUFSIZE = 128;
+    public static final int BUFSIZE = 100;
     public int timer;
     ConnectionList panel;
     Element connTarget;
