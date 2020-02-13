@@ -245,16 +245,16 @@ public class WebDemoKit implements HttpHandler {
                                                     Integer.valueOf(items[2]),
                                                     Integer.valueOf(items[3]),
                                                     items[4]));
-                        }
+                        } */
                     } else if (items[1].compareTo("TpsMeter")==0) {
                         if(items.length != 5) {
                             System.out.println("Error in line: "+line);
                         } else {
-                            elementlist.add(new TpsMeter(elementlist, panel,
+                            elementlist.add(new TpsMeter(elementlist, connlist,
                                                     Integer.valueOf(items[2]),
                                                     Integer.valueOf(items[3]),
                                                     items[4]));
-                        }
+                        } /*
                     } else if (items[1].compareTo("LogViewer")==0) {
                         if(items.length != 7) {
                             System.out.println("Error in line: "+line);
