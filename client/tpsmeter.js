@@ -30,9 +30,9 @@ function createTpsMeter(el) {
 function updateTpsMeter(domItem, el) {
     var BUFSIZE=100; // Failed to define it const
     
-    if (div === null) {
-        div=createTpsMeter(el);
-        document.getElementById("main").appendChild(div);
+    if (domItem === null) {
+        domItem=createTpsMeter(el);
+        document.getElementById("main").appendChild(domItem);
     }
     var line;
     for (var i=0; i<BUFSIZE; ++i) {
