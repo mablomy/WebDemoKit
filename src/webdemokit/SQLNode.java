@@ -91,7 +91,7 @@ public class SQLNode extends Element {
             checkServer();
             try {Thread.sleep(1000);} catch(Exception e) {System.out.println("Sleep interrupted");}
         }
-        System.out.println("ServerChecker "+hostname+" is shut down.");
+//        System.out.println("ServerChecker "+hostname+" is shut down.");
     }
 
 
