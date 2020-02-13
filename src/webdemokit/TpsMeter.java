@@ -51,7 +51,7 @@ public class TpsMeter extends Element {
                 "\"ObjType\":\"TPSMeter\"," +
                 "\"xPos\":"+x+"," +
                 "\"yPos\":"+y+"," +
-                "\"hostname\":"+hostname+"\"," +
+                "\"hostname\":\""+hostname+"\"," +
                 "\"connected\":"+connected+"," +
                 "\"waittime\":"+waittime+"," +
                 "\"lastSqlError\":\""+lastSQLerror+"\"," +
