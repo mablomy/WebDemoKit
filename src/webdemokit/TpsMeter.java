@@ -107,6 +107,7 @@ public class TpsMeter extends Element {
                     connected=true;
 
                 }
+                findConnections();
                 data = select.executeQuery("SELECT LEFT(@@hostname,IF(LOCATE('.',@@hostname)=0,LENGTH(@@hostname),LOCATE('.',@@hostname)-1)) AS Value");
                 data.next();
                 hostname = data.getString("Value");
