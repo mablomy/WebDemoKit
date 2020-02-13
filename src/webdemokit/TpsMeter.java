@@ -45,7 +45,7 @@ public class TpsMeter extends Element {
         
         tps_string = Integer.toString(tps[0]);
         for (int i=1; i<BUFSIZE; ++i) {
-            tps_string += ","+tps[(i+nextpos)%BUFSIZE];
+            tps_string += ","+tps[(i+nextpos-1)%BUFSIZE];
         }
         return ("{\"id\":\""+getIdString()+"\","+
                 "\"ObjType\":\"TPSMeter\"," +
