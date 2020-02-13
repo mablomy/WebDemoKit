@@ -160,10 +160,10 @@ public class SQLNode extends Element {
                     int t =0;
                     Element source=null;
                     while ((source==null) && (t<siblings.size())) {
-                        System.out.println("comparing "+siblings.get(t).getIdString()+" and "+replicationList.get(i));
+//System.out.println("comparing "+siblings.get(t).getIdString()+" and "+replicationList.get(i));
                         if (siblings.get(t).whoIs(replicationList.get(i))!= null) {
                             source = siblings.get(t);
-                            System.out.println(hostname+":"+port+" found its replication source: " +source.getIdString());
+//System.out.println(hostname+":"+port+" found its replication source: " +source.getIdString());
                         }
                         ++t;
                     }
