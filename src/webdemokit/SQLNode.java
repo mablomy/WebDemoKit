@@ -167,13 +167,13 @@ public class SQLNode extends Element {
                 for (int i=0; i<replicationList.size(); ++i) {
                     int t =0;
                     Element source=null;
-                    Element target;
+                    Element tester;
                     while ((source==null) && (t<siblings.size())) {
 //System.out.println("comparing "+siblings.get(t).getIdString()+" and "+replicationList.get(i));
-                        target = siblings.get(t).whoIs(replicationList.get(i));
-                        if (target != null) {
-                            source = target;
-//System.out.println(hostname+":"+port+" found its replication source: " +source.getIdString());
+                        tester = siblings.get(t).whoIs(replicationList.get(i));
+                        if (tester != null) {
+                            source = tester;
+System.out.println(hostname+":"+port+" found its replication source: " +source.getIdString());
                         }
                         ++t;
                     }
