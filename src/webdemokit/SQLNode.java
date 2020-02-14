@@ -180,6 +180,9 @@ System.out.println(hostname+":"+port+" found its replication source: " +source.g
                     }
                     if (source != null)
                         connPanel.add(new ConnectionItem(ConnectionItem.REPLICATION, source, this));
+                    else {// no replication partner found
+                        replicationList.set(i, new String()); // empty this entry. Maybe next time we find a partner 
+                    }
                 }
             } 
             data.close();
