@@ -154,6 +154,7 @@ public class SQLNode extends Element {
                 temp = data.getString("id");
                 temp2.add(temp);
             }
+System.out.println ("Checking replication. Known: "+replicationList.size()+" and found new: "+temp2.size());
             if (!replicationList.equals(temp2)) {
 //                for (int i=0; i<replicationList.size(); ++i)
 //                    System.out.println ("ReplicationList("+i+")="+replicationList.get(i));
