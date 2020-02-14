@@ -9,11 +9,12 @@ function createServer(el) {
     
     var newDiv = document.createElement("div");
     newDiv.setAttribute("id", id);
-    newDiv.setAttribute("style", "position: absolute; top: 10px; left: 500px");
+    newDiv.setAttribute("style", "position: absolute; top: 10px; left: 500px; background-color: white");
     var newImg1 = document.createElement("img");
     newImg1.setAttribute("id", id+"_server");
     newImg1.setAttribute("src", "mysql-server.png");
     newImg1.setAttribute("alt", "Server image missing");
+
     var newImg2 = document.createElement("img");
     newImg2.setAttribute("id", id+"_down");
     newImg2.setAttribute("src", "down.png");
