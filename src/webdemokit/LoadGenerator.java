@@ -109,6 +109,7 @@ public class LoadGenerator extends Element implements HttpHandler {
             }
             i++;
         }
+System.out.println("LoadGenerator "+color+" found no partner... so sad...");
     }
 
 

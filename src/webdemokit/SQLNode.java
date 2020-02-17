@@ -154,7 +154,7 @@ public class SQLNode extends Element {
                 temp = data.getString("id");
                 temp2.add(temp);
             }
-System.out.println ("Checking replication. Known: "+replicationList.size()+" and found new: "+temp2.size());
+//System.out.println ("Checking replication. Known: "+replicationList.size()+" and found new: "+temp2.size());
             if (!replicationList.equals(temp2)) {
 //                for (int i=0; i<replicationList.size(); ++i)
 //                    System.out.println ("ReplicationList("+i+")="+replicationList.get(i));
@@ -174,7 +174,7 @@ System.out.println ("Checking replication. Known: "+replicationList.size()+" and
                         tester = siblings.get(t).whoIs(replicationList.get(i));
                         if (tester != null) {
                             source = tester;
-System.out.println(hostname+":"+port+" found its replication source: " +source.getIdString());
+//System.out.println(hostname+":"+port+" found its replication source: " +source.getIdString());
                         }
                         ++t;
                     }
