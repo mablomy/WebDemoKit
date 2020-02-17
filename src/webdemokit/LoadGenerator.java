@@ -103,7 +103,7 @@ public class LoadGenerator extends Element implements HttpHandler {
         while (i < siblings.size()) {
             connTarget=siblings.get(i).whoIs(connectstring);
             if (connTarget != null) {
-//System.out.println("LoadGenerator found it's partner: id="+i);
+System.out.println("LoadGenerator "+color+" found it's partner: id="+i+"; string="+connTarget.getIdString());
                 panel.add(new ConnectionItem(ConnectionItem.CLIENT, this, connTarget));
                 break;
             }
