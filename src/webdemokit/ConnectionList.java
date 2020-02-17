@@ -22,4 +22,9 @@ public class ConnectionList extends ArrayList<ConnectionItem> {
         }
         
     }
+    
+    public void dumpAll() {
+        for (int i=0; i < size(); ++i)
+            System.out.println(i+": from="+get(i).from.getIdString()+"   to="+get(i).to.getIdString());
+    }
 }
