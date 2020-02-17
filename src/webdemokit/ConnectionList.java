@@ -5,13 +5,13 @@
  */
 package webdemokit;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
  * @author testy
  */
-public class ConnectionList extends ArrayList<ConnectionItem> {
+public class ConnectionList extends Vector<ConnectionItem> {
     public void removeInboundReplChannels(Element e) {
         int i=0;
         while (i<size()) {
