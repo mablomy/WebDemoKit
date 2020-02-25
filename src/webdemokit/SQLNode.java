@@ -222,7 +222,7 @@ public class SQLNode extends Element {
             }
             
         } catch (SQLException ex) {
-            if (ex.getMessage().compareTo("Communications link failure")!=0)
+            if (!ex.getMessage().startsWith("Communications link failure"))
                 System.out.println(ex.getMessage());
             state = NOT_CONNECTED;
         } catch (Exception e) {
