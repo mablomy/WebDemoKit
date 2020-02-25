@@ -13,6 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ConnectException;
 import java.net.NoRouteToHostException;
+import java.net.UnknownHostException;
 import java.net.URL;
 import java.util.Base64;
 import java.util.ArrayList;
@@ -122,8 +123,11 @@ public class Router extends Element {
         } catch (NoRouteToHostException e) {
             state = NOT_CONNECTED;
             // If Router is unavailable, wait a bit longer before retry
+            try {Thread.sleep(1000);} catch(Exception ex) {System.out.println("Sleep in RouterCheck interrupted");} 
+        } catch (UnknownHostException e) {
+            state = NOT_CONNECTED;
+            // If Router is unavailable, wait a bit longer before retry
             try {Thread.sleep(1000);} catch(Exception ex) {System.out.println("Sleep in RouterCheck interrupted");}
-            
         }catch (Exception e) {
             System.out.println("Exception in RouterChecker.checkRouter():");
             System.out.println(e.getMessage());
