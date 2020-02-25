@@ -222,7 +222,8 @@ public class SQLNode extends Element {
             }
             
         } catch (SQLException ex) {
-System.out.println(ex.getMessage());
+            if (ex.getMessage().compareTo("Communications link failure")!=0)
+                System.out.println(ex.getMessage());
             state = NOT_CONNECTED;
         } catch (Exception e) {
             System.out.println("Exception in ServerChecker.checkServer():");
